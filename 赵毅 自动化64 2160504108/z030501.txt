@@ -1,0 +1,25 @@
+[fir,map1]=imread('elain.bmp');
+[sec,map2]=imread('woman.bmp');
+newmap1= rgb2gray(map1);
+newmap2= rgb2gray(map2);
+figure;
+subplot(1,2,1)
+imhist(fir,newmap1);
+subplot(1,2,2)
+imhist(sec,newmap2);
+
+fi=im2bw(fir,212/255); %选择阈值212
+si=im2bw(sec,171/255);%选择阈值171
+figure;
+ subplot(2,2,1)
+ imshow(fir,newmap1);
+ xlabel('原始图像1');
+ subplot(2,2,2)
+ imshow(sec,newmap2);
+ xlabel('原始图像2');
+ subplot(2,2,3)
+ imshow(fi);
+ xlabel('分割后图像1');
+ subplot(2,2,4)
+ imshow(si);
+ xlabel('分割后图像2');
