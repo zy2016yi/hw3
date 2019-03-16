@@ -1,0 +1,19 @@
+[fir,map1]=imread('elain.bmp');
+[sec,map2]=imread('lena.bmp');
+newmap1= rgb2gray(map1);
+newmap2= rgb2gray(map2);
+fi=adapthisteq(fir,'NumTiles',[7 7]);
+si=adapthisteq(sec,'NumTiles',[7 7]);
+
+ subplot(2,2,1)
+ imshow(fir,newmap1);
+ xlabel('原始图像1');
+ subplot(2,2,2)
+ imshow(sec,newmap2);
+ xlabel('原始图像2');
+ subplot(2,2,3)
+ imshow(fi,newmap1);
+ xlabel('将1直方图匹配给2匹配后');
+ subplot(2,2,4)
+ imshow(si,newmap2);
+ xlabel('将2直方图匹配给1匹配后');
